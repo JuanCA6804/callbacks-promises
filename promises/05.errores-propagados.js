@@ -37,3 +37,4 @@ validarCredenciales("admin", "clave_erronea")
         // Captura el fallo de validarCredenciales; los dos .then() fueron ignorados
         console.log("Acceso denegado: " + error);
     });
+

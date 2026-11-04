@@ -24,3 +24,4 @@ verificarStock(25)
     .catch(function (mensajeError) {
         console.log("Atención: " + mensajeError);
     });
+

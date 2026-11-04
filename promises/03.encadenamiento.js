@@ -38,3 +38,4 @@ obtenerPrecioBase(1)
     .then(function (granTotal) {
         console.log("Resultado final a cobrar: $" + granTotal);
     });
+

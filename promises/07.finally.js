@@ -29,3 +29,4 @@ procesarPago(0)
     .finally(function () {
         console.log("[UI] Operación finalizada. Botón de pago habilitado nuevamente.");
     });
+

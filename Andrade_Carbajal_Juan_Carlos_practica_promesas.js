@@ -4,7 +4,8 @@
 // DESARROLLO DE SOFTWARE MULTIPLATAFORMA
 // 
 // Actividad Práctica: Callbacks y Promesas en JavaScript
-// Archivo: Apellido_Nombre_practica_promesas.js
+// Alumno: Juan Carlos Andrade Carbajal
+// Archivo: Andrade_Carbajal_Juan_Carlos_practica_promesas.js
 // =============================================================================
 
 // =============================================================================
