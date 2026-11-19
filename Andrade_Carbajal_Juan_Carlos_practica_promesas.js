@@ -1,21 +1,7 @@
-// =============================================================================
-// UNIVERSIDAD TECNOLÓGICA DEL CENTRO DE VERACRUZ
-// TECNOLOGÍAS DE LA INFORMACIÓN E INNOVACIÓN DIGITAL
-// DESARROLLO DE SOFTWARE MULTIPLATAFORMA
-// 
-// Actividad Práctica: Callbacks y Promesas en JavaScript
-// Alumno: Juan Carlos Andrade Carbajal
-// Archivo: Andrade_Carbajal_Juan_Carlos_practica_promesas.js
-// =============================================================================
-
-// =============================================================================
 // === PARTE 1: DETECCIÓN Y CORRECCIÓN DE ERRORES ===
-// =============================================================================
-
-// -----------------------------------------------------------------------------
 // Reto 1.1: El callback que se ejecuta antes de tiempo
 // -----------------------------------------------------------------------------
-// [EXPLICACIÓN DEL ERROR]:
+// EXPLICACIÓN:
 // En la línea original con error: 'guardarEnDispositivo(mostrarConfirmacion());',
 // se colocaron paréntesis '()' al pasar 'mostrarConfirmacion'. Esto provoca que la
 // función se invoque inmediatamente en el hilo principal antes de que 'guardarEnDispositivo'
@@ -24,7 +10,7 @@
 // 'guardarEnDispositivo' recibe 'undefined' como callback, lo que ocasiona un fallo cuando
 // setTimeout intenta invocarlo después de 1 segundo.
 //
-// [CÓDIGO CORREGIDO]:
+// CÓDIGO BIEN:
 // Se debe pasar la referencia a la función SIN paréntesis: 'guardarEnDispositivo(mostrarConfirmacion);'
 
 const mostrarConfirmacion = () => {
@@ -43,7 +29,7 @@ guardarEnDispositivo(mostrarConfirmacion);
 // -----------------------------------------------------------------------------
 // Reto 1.2: La cadena de promesas que pierde el dato (undefined)
 // -----------------------------------------------------------------------------
-// [EXPLICACIÓN DEL ERROR]:
+// EXPLICACIÓN:
 // En las cadenas de promesas, el siguiente método .then() recibe como argumento
 // exactamente lo que el .then() anterior devuelva mediante la palabra reservada 'return'.
 // En el código original, dentro del primer .then() se calculó 'totalConCargo', pero se
@@ -51,7 +37,7 @@ guardarEnDispositivo(mostrarConfirmacion);
 // 'undefined' implícitamente, por lo que el segundo .then() recibe 'precioFinal' como
 // 'undefined' y el cálculo o concatenación arroja 'Total final a pagar: $NaN' o '$undefined'.
 //
-// [CÓDIGO CORREGIDO]:
+// CÓDIGO BIEN:
 // Se añade la instrucción 'return totalConCargo;' al final del primer .then().
 
 const obtenerPrecioBoleto = () => {
@@ -64,7 +50,7 @@ obtenerPrecioBoleto()
     .then((precioBase) => {
         console.log(`Precio base del boleto: $${precioBase}`);
         const totalConCargo = precioBase + 30;
-        return totalConCargo; // <-- Indispensable para pasar el dato al siguiente .then()
+        return totalConCargo; // Indispensable para pasar el dato al siguiente .then()
     })
     .then((precioFinal) => {
         console.log(`Total final a pagar: $${precioFinal}`);
@@ -72,7 +58,7 @@ obtenerPrecioBoleto()
 
 
 // =============================================================================
-// === PARTE 2: SIMULACIÓN ASÍNCRONA CON CALLBACKS ===
+// Parte 2: SIMULACIÓN ASÍNCRONA CON CALLBACKS
 // =============================================================================
 
 const validarCuponCallback = (codigoCupon, callback) => {
@@ -102,7 +88,6 @@ const manejarRespuestaCupon = (error, datosCupon) => {
     console.log(`Cupón válido: ${datosCupon.codigo} con ${datosCupon.porcentaje}% de descuento.`);
 };
 
-// Pruebas obligatorias (ambas llamadas se ejecutan):
 setTimeout(() => {
     console.log("\n--- Inicio Pruebas Parte 2 (Callbacks) ---");
     validarCuponCallback("DESCUENTO20", manejarRespuestaCupon);
@@ -111,7 +96,7 @@ setTimeout(() => {
 
 
 // =============================================================================
-// === PARTE 3: REFACTORIZACIÓN A PROMESAS Y ENCADENAMIENTO ===
+//  Parte 3: REFACTORIZACIÓN A PROMESAS Y ENCADENAMIENTO 
 // =============================================================================
 
 // 1. Función validarCuponPromesa
@@ -167,3 +152,4 @@ setTimeout(() => {
             console.log("--- Proceso de validación de compra finalizado ---");
         });
 }, 4500);
+
